@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en,ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Information security Advisory Plan</title>
+</head>
+<body>
+<header>
+        <span id="mContainer">
+            <button id="magnifier" onclick="zoomin()">&#x1F50E;&#x2191;</button>
+            <button id="smagnifier" onclick="zoomout()">&#x1F50E;&#x2193;</button>
+        </span>
+    <h2 id="title"></h2>
+</header>
+<main id="schedule">
+    <div id="guide">
+        <span class="tip course_to_get_requisites"></span><span>المساق المعني</span>
+        <span class="tip direct_requisites"></span><span>المتطلبات المباشرة</span>
+        <span class="tip indirect_requisites"></span><span>متطلبات ما قبل المتطلبات المباشرة</span>
+        <span class="tip requisite_for"></span><span>مساقات تفتحها</span>
+        <abbr id="link">
+            <a target="_blank"></a>
+        </abbr>
+    </div>
+</main>
+<script src="data.js"></script>
+<script src="set_courses.js"></script>
+<script src="actions.js"></script>
+</body>
+</html>
