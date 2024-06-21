@@ -1,1 +1,0 @@
-# Information-security-Advisory-Plan
