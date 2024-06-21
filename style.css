@@ -1,0 +1,275 @@
+html{ 
+    font-size: 9vw; 
+    font-family: 'Times New Roman', Times, serif; 
+}
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+}
+body { 
+    padding: 18% 9% 27% 9%; 
+    position: absolute;
+    top: 0;
+}
+header {
+    text-align: center;
+    padding: 0 0 .6rem 0;
+}
+#mContainer {
+    z-index: 2;
+    position: relative;
+    float: left;
+    top: .5rem;
+    padding: 0 .2%;
+    border-radius: 5%;
+    animation-duration: 5s;
+    animation-name: blink;
+}
+@keyframes blink {
+    0% { 
+        background-color: red;
+        box-shadow: 0 0 .1rem red, 0 0 .2rem red, 0 0 .3rem red, 0 0 .4rem red, 
+            0 0 2rem red, 0 0 1.1rem red, 0 0 1.2rem red, 0 0 1.3rem red, 0 0 1.4rem red; 
+    }
+    50% { box-shadow: none; }
+    100% { background-color: none; }
+}
+.top_corner {
+    cursor: pointer;
+    padding-right: .5rem;
+    text-shadow: 0 0 .5rem black;
+    display: inline-block;
+}
+.top_corner, .top_corner > * {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.top_corner > .note { 
+    left: 1.5rem;
+    top: 1rem;
+    height: max-content;
+    box-shadow: 0 0 .25rem gray;
+    text-shadow: none;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+.top_corner > .note > *{
+    font-size: 0.7rem;
+}
+#magnifier, #smagnifier {
+    cursor: pointer;
+    opacity: .2;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+
+}
+#smagnifier { text-decoration: line-through; }
+#magnifier:hover, #smagnifier:hover, .top_corner:hover {
+    opacity: 1;
+    transform: scale(1.6);
+}
+#logo {
+    display: inline;
+    height: 4rem;
+    margin-top: -4rem;
+    position: relative;
+    top: 1rem;
+    left: -1rem;
+}
+#title {
+    position: relative;
+    display: inline;
+    font-size: 1.8rem;
+    text-align: center;
+    left: -1rem;
+}
+#schedule {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 9.6rem);
+    gap: .6rem;
+    height: auto;
+    width: fit-content;
+    padding: 0 1.6rem;
+    font-size: 1.5rem;
+    margin: auto;
+    justify-content: center;
+    align-content: flex-end;
+    border: .2rem solid gray;
+    border-radius: 1rem;
+}
+#schedule * { text-align: center; }
+.year {
+    grid-row: 1;
+    grid-column: span 2;
+    margin: 1rem 0 0 0;
+    padding: 0;
+    background-color: gainsboro;
+    font-size: 1.4rem;
+}
+.semester1, .semester2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    background-color: ghostwhite;
+    font-size: 1.2rem;
+}
+.semester1 > h4, .semester2 > h4 {
+    margin: 0 0 1.6rem 0;
+    padding: 0;
+}
+.course, .dbclicked {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    height: 3.4rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    font-size: .9rem;
+    font-weight: bold;
+    line-height: 1rem;
+    box-shadow: 0 0 .25rem gray;
+    /* position: relative; /* for .course:hover .note  !!!!!!!!*/ 
+    background-color: ghostwhite;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+div.course, div > .dbclicked { 
+    width: 8.5rem; 
+    margin: 0.3rem 0;
+}
+section.course, section > .dbclicked { 
+    width: 18.7rem; 
+    margin: 0.3rem -5.1rem;
+    z-index: 1;
+    position: relative;
+}
+.semester1 > section { left: 5.1rem; }
+.semester2 > section { right: 5.1rem; }
+#schedule > :nth-child(2) .note, #schedule > :nth-child(3) .note, 
+#schedule > :nth-child(5) .note  { left: 8rem; }
+#schedule > div > :nth-child(2) .note, #schedule > div > :nth-child(3) .note { 
+    top: 4rem; 
+    height: max-content;
+}
+.course:hover > .note, .top_corner:hover > .note { display: block; } 
+.dbclicked {
+    position: fixed !important;
+    background-color: transparent;
+    box-shadow: none;
+    animation-duration: .5s;
+    animation-name: dbclick;
+    display: none;
+}
+@keyframes dbclick {
+    0% { box-shadow: 0 0 .1rem red, 0 0 .2rem red, 0 0 .3rem red, 0 0 .4rem red; }
+    100% { box-shadow: none; }
+}
+th, td { padding: 0 1rem; }
+.appear { 
+    box-shadow: 0 0 .5rem black; 
+    position: relative;
+}
+.course_to_get_requisites { background-color: turquoise;}
+.direct_requisites { background-color: #ff5500; }
+.indirect_requisites { background-color: yellow; }
+.requisite_for { background-color: lightgreen; }
+.transparent { color: #0005; }
+.transparent > .note { display: none !important; }
+.note {
+    position: absolute;
+    bottom: 90%;
+    right: 90%;
+    display: none;
+    padding: 1rem;
+    width: max-content;
+    background:rgba(255, 69, 0, .7);
+    color: white;
+    border-radius: 1.6rem;
+    box-shadow: inherit;
+    z-index: 1;
+}
+#guide {
+    height: auto;
+    justify-self: end;
+    padding: 0 .4rem .4rem 0;
+}
+#guide * { 
+    float: right; 
+    font-weight: bolder;
+    color: #000a;
+}
+.tip {
+    margin: .2em 1.2em 0 .2em;
+    height: .5em;
+    width: 2em;
+}
+#link a { 
+    margin-right: 3rem; 
+    color: #6495edcc;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes cAnimation {
+    0% { 
+        text-shadow: 0 0 .1rem lightgreen, 0 0 .2rem lightgreen, 0 0 .3rem lightgreen,
+        0 0 .4rem lightgreen, 0 0 .5rem lightgreen, 0 0 .6rem lightgreen, 0 0 .7rem lightgreen,
+        0 0 .8rem lightgreen, 0 0 .9rem lightgreen, 0 0 1rem lightgreen ; 
+        scale: 2;
+    }
+    100% { 
+        text-shadow: 0 0 .5rem black; 
+        scale: 1;
+    }
+}
+@media screen and (max-width: 1000px) {
+    #magnifier, #smagnifier {
+        display: none;
+    }
+    .top_corner { 
+        margin: 0 1.2rem;
+        scale: 1.2; 
+    }
+    #title { font-size: 1.5rem; }
+    #logo { scale: .7; }
+}
+@media (max-width: 700px) {
+    .top_corner { 
+        position: relative;
+        margin: 0 1.5rem;
+        bottom: .5rem;
+        scale: 2; 
+    }
+    #contact_us >.note {
+        left: -3.5rem;
+    }
+    #contact_us {
+        top: -.6rem
+    }
+    #contact_us:hover {
+        top: -.6rem;
+    }
+    sub { display: none; }
+    @keyframes cAnimation {
+        0% { 
+            text-shadow: 0 0 .1rem lightgreen, 0 0 .2rem lightgreen, 0 0 .3rem lightgreen,
+            0 0 .4rem lightgreen, 0 0 .5rem lightgreen, 0 0 .6rem lightgreen, 0 0 .7rem lightgreen,
+            0 0 .8rem lightgreen, 0 0 .9rem lightgreen, 0 0 1rem lightgreen ; 
+            scale: 4;
+        }
+        100% { 
+            text-shadow: 0 0 .5rem black; 
+            scale: 2;
+        }
+    }
+}
